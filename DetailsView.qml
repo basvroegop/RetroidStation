@@ -81,9 +81,8 @@ FocusScope {
         Text {
             text: currentCollection.name
             wrapMode: Text.WordWrap
-            font.capitalization: Font.AllUppercase
             font.family: "Open Sans"
-            font.pixelSize: vpx(32)
+            font.pixelSize: vpx(64)
             font.weight: Font.Light // this is how you use the light variant
             horizontalAlignment: Text.AlignRight
             color: "#7b7d7f"
@@ -110,8 +109,8 @@ FocusScope {
         Item {
             id: boxart
 
-            height: vpx(218)
-            width: Math.max(vpx(160), Math.min(height * boxartImage.aspectRatio, vpx(320)))
+            height: vpx(500)
+            width: Math.max(vpx(500), Math.min(height * boxartImage.aspectRatio, vpx(320)))
             anchors {
                 top: parent.top; topMargin: content.paddingV
                 left: parent.left; leftMargin: content.paddingH
@@ -133,60 +132,10 @@ FocusScope {
 
         // While the game details could be a grid, I've separated them to two
         // separate columns to manually control thw width of the second one below.
-        Column {
-            id: gameLabels
-            anchors {
-                top: boxart.top
-                left: boxart.right; leftMargin: content.paddingH
-            }
-
-            GameInfoText { text: "Rating:" }
-            GameInfoText { text: "Released:" }
-            GameInfoText { text: "Developer:" }
-            GameInfoText { text: "Publisher:" }
-            GameInfoText { text: "Genre:" }
-            GameInfoText { text: "Players:" }
-            GameInfoText { text: "Last played:" }
-            GameInfoText { text: "Play time:" }
-        }
-
-        Column {
-            id: gameDetails
-            anchors {
-                top: gameLabels.top
-                left: gameLabels.right; leftMargin: content.paddingH
-                right: gameList.left; rightMargin: content.paddingH
-            }
-
-            // 'width' is set so if the text is too long it will be cut. I also use some
-            // JavaScript code to make some text pretty.
-            RatingBar { percentage: currentGame.rating }
-            GameInfoText { width: parent.width; text: Utils.formatDate(currentGame.release) || "unknown" }
-            GameInfoText { width: parent.width; text: currentGame.developer || "unknown" }
-            GameInfoText { width: parent.width; text: currentGame.publisher || "unknown" }
-            GameInfoText { width: parent.width; text: currentGame.genre || "unknown" }
-            GameInfoText { width: parent.width; text: Utils.formatPlayers(currentGame.players) }
-            GameInfoText { width: parent.width; text: Utils.formatLastPlayed(currentGame.lastPlayed) }
-            GameInfoText { width: parent.width; text: Utils.formatPlayTime(currentGame.playTime) }
-        }
-
-        GameInfoText {
-            id: gameDescription
-            anchors {
-                top: boxart.bottom; topMargin: content.paddingV
-                left: boxart.left
-                right: gameList.left; rightMargin: content.paddingH
-                bottom: parent.bottom; bottomMargin: content.paddingV
-            }
-
-            text: currentGame.description
-            wrapMode: Text.WordWrap
-            elide: Text.ElideRight
-        }
 
         ListView {
             id: gameList
-            width: parent.width * 0.35
+            width: parent.width * 0.50
             anchors {
                 top: parent.top; topMargin: content.paddingV
                 right: parent.right; rightMargin: content.paddingH
@@ -211,8 +160,7 @@ FocusScope {
                     text: modelData.title
                     color: parent.selected ? parent.clrLight : parent.clrDark
 
-                    font.pixelSize: vpx(20)
-                    font.capitalization: Font.AllUppercase
+                    font.pixelSize: vpx(40)
                     font.family: "Open Sans"
 
                     lineHeight: 1.2
