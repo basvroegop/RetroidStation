@@ -1,12 +1,8 @@
 ![](screenshot.png)
 
-# ES2 Simple theme for Pegasus
+# RetroidStation
 
-This is the port of the *Simple* theme of EmulationStation to the [Pegasus](http://pegasus-frontend.org) frontend, originally created by *Nils Bonenberger* <nilsbyte@nilsbyte.de>.
-
-## Installation
-
-[Download](https://github.com/mmatyas/pegasus-theme-es2-simple/archive/master.zip) and extract to your [theme directory](http://pegasus-frontend.org/docs/user-guide/installing-themes). You can then select the theme in the settings menu of Pegasus.
+This is the port of the *Simple* theme of EmulationStation to the [Pegasus](http://pegasus-frontend.org) frontend, originally created by *Nils Bonenberger* <nilsbyte@nilsbyte.de>. Tweaked by me to better fit the Retroid Pocket 2 display.
 
 ## License
 
